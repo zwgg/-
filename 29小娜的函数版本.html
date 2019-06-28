@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /*
+  小娜的功能
+    1.循环弹框询问输入
+    2.输入q退出循环
+    3.输入1或者是总和，就可以输入一串以逗号隔开的数字，然后求和
+    4.输入2或者是时间，可以得到固定格式的当前时间
+    5.输入3或者是笑话，可以随机的获得一个笑话
+    6.如果输入的不满足条件，会弹出提示
+*/
+    // 第一个函数的封装 - 判断小于10补全0的封装
+    function patchZero(number) {
+        if (number < 10) {
+            number = '0' + number;
+        }
+        return number;
+    }
+    // 第二个函数额封装 - 获得一个固定格式的时间
+    function formatDate() {
+        var date = new Date();
+        var y = date.getFullYear();
+        var M = date.getMonth() + 1;
+        var d = date.getDate();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        // 判断是否小于10
+        M = patchZero(M);
+        d = patchZero(d);
+        h = patchZero(h);
+        m = patchZero(m);
+        s = patchZero(s);
+        var time = y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s;
+        return time;
+    }
+
+    // 求数组的和，先单独的封装 - 因为求数组的和，不仅仅是在小娜里面使用，可以在别的地方也可以使用
+    function getSumFromArray(arr) {
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            sum += parseFloat(arr[i]);
+        }
+        return sum;
+    }
+
+    // 把处理输入1的逻辑，也可以封装成函数，可以把代码简化
+    function inputOne() {
+        var numbers = prompt('请输入用逗号分隔的数字');
+        // 切割
+        var arr = numbers.split(',');
+        var sum = getSumFromArray(arr);
+        return sum;
+    }
+
+
+    // 循环的弹窗输入 - while循环
+    while (true) {
+        // 1 弹出输入框
+        var msg = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+            "输入 《编号》 或 《关键词》 选择功能，输入q退出聊天\n" +
+            "1.计算 《总和》 \n" +
+            "2.计算 《时间》 \n" +
+            "3.计算 《笑话》 \n");
+        // 2 判断输入的是不是q
+        if (msg == 'q') {
+            alert('你已经不爱小娜了吗？是不是外面有狗了？');
+            break;
+        }
+        // 判断123
+        switch (msg) {
+            case '1':
+            case '总和':
+                var sum = inputOne();
+                alert(sum);
+                break;
+            case '2':
+            case '时间':
+                var time = formatDate();
+                alert(time);
+                break;
+            case '3':
+            case '笑话':
+                // 笑话数组
+                var jokes = [
+                    '微胖的女孩，运气不会太差，因为运气太差的女孩都是巨胖。',
+                    '每次看古装片听人说：愿闻其翔，都觉得怪怪的。。。',
+                    '从前有一个人叫小明，小明没听见。',
+                    '我有一个看家本领。”“什么？”“看家。',
+                    '包大人对展昭说：“一会儿看我脸色行事。”展昭：“你tm在逗我吧',
+                    '古时侯，有一对情侣隔江相望，男子喜欢写诗，每当写完一首就折好藏在鸭子羽毛里让鸭子游到对岸带给女子鉴赏，他的朋友建议道：“信鸽岂不更快。”男子解释道：“这是她的要求，我写的诗一定要鸭运。'
+                ];
+                // 随机索引
+                var index = Math.floor(Math.random() * jokes.length);
+                alert(jokes[index]);
+                break;
+            default:
+                // 如果输入的没有上述的判断，就提示我不会
+                alert('您的话小娜没有听懂，请重新说一次');
+                break;
+        }
+    }
+</script>
+
+</html>

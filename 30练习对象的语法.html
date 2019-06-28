@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /*
+  使用对象之前，需要先创建
+    描述复杂的数据，比如一个人
+      人的特征： 
+        姓名、性别、年龄
+      人的行为：
+        自我介绍
+*/
+
+    // 1 字面量的方式创建对象。
+    var person = {};
+    // 描述对象的特征： 给对象添加属性
+    person.name ='来福';
+    person.age = '18';
+    person.gender ='是个男子汉';
+    // 描述对象的行为 ：给对象添加方法 。
+    person.sayHi = function(){
+        console.log('你们好，我叫'+ person.name +'今年'+person.age +'岁了，'+ person.gender);
+    }
+    // 指挥对象做事情，就是调用对象的方法
+    person.sayHi();
+    console.log(person);
+
+
+
+//    2 字面量的方式创建对象。
+     var ren = {};
+    //  描述对象的特征：给对象添加属性
+    ren.name ='富贵';
+    ren.age = '24';
+    ren.gender = '广东最靓的仔';
+    // 描述对象的行为 ：给对象添加方法
+    ren.sayHi = function(){
+        console.log('亲爱的观众朋友们，你们好吗。欢迎来看我' + ren.name + '的演唱会，你们知道我今年已经'+ ren.age+'岁了' +'而且我还是--'+ ren.gender);
+    }
+    // 指挥对象做事情，就是调用对象的方法
+    ren.sayHi();
+    console.log(ren);
+
+        
+    /*
+  一条狗
+    特征
+      名字 - name，年龄 -age，性别-gender，品种-type，颜色-color
+    行为
+      跑 - run - 输出一段文字： 跑起来你连我尾灯都看不到..
+      叫 - bark - 输出一段文字： 沙雕来追我啊~汪汪汪
+*/
+//    使用对象的语法描述狗
+     var dog = {};
+     dog.name = '旺财';
+     dog.age = '1';
+     dog.gender ='狗中吴彦祖。';
+     dog.wang = function(){
+         console.log('大家好，我的大名叫'+ dog.name+',我今年'+ dog.age+'岁了。虽然我还不够成熟，但是我有个外号，人称一一'+dog.gender);
+     }
+     dog.run = function(){
+         console.log('我旺财不仅帅，还跑的快，我跑起来你连我尾灯都看不到..');
+     }
+     dog.bark = function(){
+        console.log(' 沙雕来追我啊~汪汪汪')
+     }
+     
+     console.log(dog);
+     dog.wang();
+     dog.run();
+     dog.bark();
+
+
+
+
+
+</script>
+
+</html>

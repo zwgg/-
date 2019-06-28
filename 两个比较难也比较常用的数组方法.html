@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+	//   filter 过滤
+	   var arr =[3000, 5000, 100, 80, 90, 2500];
+	   var arr2 = arr.filter(function(e,i){
+	    //    返回一个你要筛选的条件
+	    return e >2000;
+	   })
+	   console.log(arr2);
+
+	// 该方法可以在任何你想要根据条件进行数组筛选的时候
+	//  用法 ：数组.filter(function(元素，索引){
+	//      return 你的条件
+	//  })
+
+
+
+	var arr = [3000, 5000, 100, 80, 90, 2500];
+	var arr2 = [];
+	arr.forEach(function (e) {
+		if (e > 2000) {
+			arr2.push(e);
+		}
+	})
+	console.log(arr2);
+
+
+	var arr = [3000,5000,100,80,90,2500];
+	var arr2 = [];
+	arr.forEach(function(e){
+		if (e > 2000){
+			arr2.push(e);
+		}
+	})
+	console.log(arr2);
+	
+
+
+
+</script>
+
+</html>

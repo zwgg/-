@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    while (true) {
+        var msg = prompt("你好，我是传智小娜，你的语音助手~~~~~~~\n" +
+            "输入 《编号》 或 《关键词》 选择功能，输入q退出聊天\n" +
+            "1.计算 《总和》 \n" +
+            "2.计算 《时间》 \n" +
+            "3.计算 《笑话》 \n");
+        if (msg === 'q') {
+            alert('你已经不爱小娜了吗？是不是外面有狗了？');
+            break;
+        }
+        switch (msg) {
+            case '1':
+            case '总和':
+                var numbers = prompt('请输入你要求和的数字，以逗号隔开，例如：1,2,3,4');
+                var arr = numbers.split(',');
+                var sum = 0;
+                for (var i = 0; i < arr.length; i++) {
+                    sum += parseFloat(arr[i]);
+                }
+                alert('你要计算的总和计算出来了，是：' + sum);
+                break;
+                case '2':
+            case '时间':
+                // 5 求当前的时间是多少，并且以固定的格式输出
+                // Date 可以获取当前的时间
+                // 5.1 创建一个变量，这个变量可以记录当前的时间
+                var date = new Date();
+                // 5.2 分别获取年月日时分秒
+                var year = date.getFullYear();
+                var month = date.getMonth() + 1;// 因为getMonth得到的是0-11之间的数字
+                var day = date.getDate();
+                var hour = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                // 5.3 如果月，日，时分秒，是小于10的，需要把前面的0补全
+                if (month < 10) {
+                    month = '0' + month;
+                }
+                if (day < 10) {
+                    day = '0' + day;
+                }
+                if (hour < 10) {
+                    hour = '0' + hour;
+                }
+                if (minute < 10) {
+                    minute = '0' + minute;
+                }
+                if (second < 10) {
+                    second = '0' + second;
+                }
+                // second = second < 10 ? '0' + second : second;
+                // 5.3 需要以一个 yyyy-MM-dd hh:mm:ss 的格式输出
+                // console.log(year,month,day,hour,minute,second);
+                var time = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+                alert('当前的时间是：' + time);
+                break;
+            // 6 输入3或者是笑话，随机一个笑话输出
+            case '3':
+            case '笑话':
+                // 准备一个笑话的数组，每次输入3或者是笑话的时候，进行随机索引，取出笑话弹出提示
+                // 6.1 准备一个笑话的数组
+                var joke = [
+                    '微胖的女孩，运气不会太差，因为运气太差的女孩都是巨胖。',
+                    '每次看古装片听人说：愿闻其翔，都觉得怪怪的。。。',
+                    '从前有一个人叫小明，小明没听见。',
+                    '我有一个看家本领。”“什么？”“看家。',
+                    '包大人对展昭说：“一会儿看我脸色行事。”展昭：“你tm在逗我吧',
+                    '古时侯，有一对情侣隔江相望，男子喜欢写诗，每当写完一首就折好藏在鸭子羽毛里让鸭子游到对岸带给女子鉴赏，他的朋友建议道：“信鸽岂不更快。”男子解释道：“这是她的要求，我写的诗一定要鸭运。'
+                ];
+                // 6.2 随机一个索引
+                var r = Math.floor(Math.random() * joke.length);
+                // 6。3 直接输出笑话
+                alert(joke[r]);
+                break;
+            // 如果用户没有按照要求输入，就是上述条件都不成立
+            default:
+                alert('您的话小娜没有听懂，请重新说一次');
+                break;
+        }
+    }
+
+</script>
+
+</html>

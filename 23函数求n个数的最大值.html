@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //求2个数中的最大值
+    function getMax(a,b){
+      return a > b ? a : b;
+    }
+    console.log(getMax(2,20));
+    
+    // 求3个数的最大值
+    function getMax2(a,b,c){
+      var max = getMax(a,b);
+      return getMax(max,c);
+    }
+    console.log(getMax2(150,10,20));
+    
+    // 求n个数的最大值
+    function getMaxN(){
+      var max = arguments[0];
+      for(var i = 1; i < arr.length; i++){
+        if(max < arguments[i]){
+          max = arguments[i];
+        }
+      }
+      return max;
+    }
+    console.log(getMax(300,20,1,100,));
+    
+    </script>
+</html>
